@@ -697,7 +697,7 @@ dispatch_semaphore_signal(_lock);
                     CGFloat fontSize = font ? CTFontGetSize(font) : 12.0;
                     UIFont *uiFont = [UIFont systemFontOfSize:fontSize * 0.9];
                     if (uiFont) {
-                        font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
+                        font = CTFontCreateWithName([uiFont.fontName isEqualToString:@".SFUI-Regular"] ? (__bridge CFStringRef)@"TimesNewRomanPSMT":(__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
                     } else {
                         font = NULL;
                     }
